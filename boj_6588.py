@@ -2,7 +2,7 @@ import sys
 input = sys.stdin.readline
 
 nums = set()
-for i in range(3, 1000, 2):
+for i in range(3, 1000000, 2):
     tmp = 0
     for j in range(3, int(i**0.5) + 1):
         if i % j == 0:
@@ -10,7 +10,7 @@ for i in range(3, 1000, 2):
             break
     if tmp == 0:
         nums.add(i)
-print(nums)
+
 while True:
     n = int(input())
     a, b = 0, 0
