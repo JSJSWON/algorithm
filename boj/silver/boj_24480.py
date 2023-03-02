@@ -10,7 +10,7 @@ for _ in range(M):
     graph[v].append(u)
 
 for i in range(len(graph)):
-    graph[i] = sorted(graph[i])
+    graph[i] = sorted(graph[i], reverse=True)
 
 visited = [0 for _ in range(N+1)]
 visited[R] = 1
