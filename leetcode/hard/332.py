@@ -2,6 +2,7 @@ from typing import List
 from collections import defaultdict
 
 
+# 재귀를 이용한 풀이
 class Solution:
     def findItinerary(self, tickets: List[List[str]]) -> List[str]:
         graph = defaultdict(list)
@@ -17,6 +18,22 @@ class Solution:
 
         dfs('JFK')
         return path[::-1]
+
+
+# 반복을 이용한 풀이
+class Solution:
+    def findItinerary(self, tickets: List[List[str]]) -> List[str]:
+        graph = defaultdict(list)
+        for t in sorted(tickets):
+            graph[t[0]].append(t[1])
+
+        route, stack = [], ['JFK']
+        while stack:
+            while graph[stack[-1]]:
+                stack.append(graph[stack[-1]].pop(0))
+            route.append(stack.pop())
+
+        return route[::-1]
 
 
 sol = Solution()
